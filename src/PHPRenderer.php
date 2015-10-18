@@ -60,10 +60,13 @@ class PhpRenderer
 
         extract($data);
 
-        ob_start();
+        $body = $response->getBody();
+        ob_start(function($buffer) use ($body) {
+            $body->write($buffer);
+        });
         include $this->templatePath . $template;
-        $output = ob_get_clean();
+        ob_end_flush();
 
-        return $response->getBody()->write($output);
+        return $response;
     }
 }
