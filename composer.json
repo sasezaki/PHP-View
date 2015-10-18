@@ -17,5 +17,14 @@
         "psr-4": {
             "Slim\\Views\\": "src"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SlimBench\\Views\\": "benchmarks/"
+        }
+    },
+  "require-dev": {
+    "athletic/athletic": "~0.1",
+    "phpspec/prophecy": "~1.0"
+  }
 }
